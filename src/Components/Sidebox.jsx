@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import GradingIcon from "@mui/icons-material/Grading";
@@ -14,6 +13,8 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+
+import { styled } from "@mui/system";
 class Sidebox extends Component {
   state = {};
   handleIcons(index) {
@@ -38,7 +39,7 @@ class Sidebox extends Component {
   }
   render() {
     return (
-      <div>
+      <Box sx={{ flexGrow: 1, p: 2 }}>
         <Drawer
           sx={{
             width: 250,
@@ -69,22 +70,7 @@ class Sidebox extends Component {
             ))}
           </List>
         </Drawer>
-        <Box
-          sx={{
-            //basically hardcoded this box
-            position: "absolute",
-            left: 400,
-            top: 10,
-            border: 1,
-            width: 1400,
-            height: 40,
-            p: 2,
-          }}
-          borderColor="#FFFFFF"
-        >
-          College Finder
-        </Box>
-      </div>
+      </Box>
     );
   }
 }
