@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/college-finder/static/css/main.cf05ef5f.css",
-    "main.js": "/college-finder/static/js/main.6e9a59b8.js",
+    "main.js": "/college-finder/static/js/main.7ba352ea.js",
     "static/js/787.9b70142c.chunk.js": "/college-finder/static/js/787.9b70142c.chunk.js",
     "static/media/logo.svg": "/college-finder/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/college-finder/index.html",
     "main.cf05ef5f.css.map": "/college-finder/static/css/main.cf05ef5f.css.map",
-    "main.6e9a59b8.js.map": "/college-finder/static/js/main.6e9a59b8.js.map",
+    "main.7ba352ea.js.map": "/college-finder/static/js/main.7ba352ea.js.map",
     "787.9b70142c.chunk.js.map": "/college-finder/static/js/787.9b70142c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cf05ef5f.css",
-    "static/js/main.6e9a59b8.js"
+    "static/js/main.7ba352ea.js"
   ]
 }
