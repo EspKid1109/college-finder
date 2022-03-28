@@ -3,10 +3,13 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
-class HomepageBody extends Component {
-  state = {};
-  render() {
+export default function HomepageBody() {
+  const navigate = useNavigate();
+  const btnHandler = () => {
+        navigate('/personalInt')
+  }
     return (
       <Box
         sx={{ flexGrow: 1, border: 1, p: 2 }}
@@ -50,6 +53,7 @@ class HomepageBody extends Component {
                 backgroundColor: "#240303",
               }}
               variant="outlined"
+              onClick={btnHandler}
             >
               Begin
             </Button>
@@ -57,7 +61,4 @@ class HomepageBody extends Component {
         </Grid>
       </Box>
     );
-  }
 }
-
-export default HomepageBody;
