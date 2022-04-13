@@ -40,6 +40,7 @@ export default function SideBox() {
   };
   const navigate = useNavigate();
   const handleClick = (text) => {
+    //update with new pages accordingly
     console.log(text);
     switch (text) {
       case "Personal Interests":
