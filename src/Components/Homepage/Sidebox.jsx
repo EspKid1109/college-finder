@@ -13,11 +13,12 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import { useNavigate } from "react-router-dom";
 
 import { styled } from "@mui/system";
-class Sidebox extends Component {
-  state = {};
-  handleIcons(index) {
+
+export default function SideBox() {
+  const handleIcons = (index) => {
     switch (index) {
       case 0:
         return <FavoriteIcon />;
@@ -36,43 +37,55 @@ class Sidebox extends Component {
       default:
         return <FavoriteIcon />;
     }
-  }
-  render() {
-    return (
-      <Box sx={{ flexGrow: 1, p: 2 }}>
-        <Drawer
-          sx={{
-            width: 250,
-            flexShrink: 0,
-            "& .MuiDrawer-paper": {
-              width: 250,
-              boxSizing: "border-box",
-            },
-          }}
-          variant="permanent"
-          anchor="left"
-        >
-          <MenuIcon fontSize="large" />
-          <List>
-            {[
-              "Personal Interests",
-              "Academic Information",
-              "Budget",
-              "Location",
-              "Institution Type",
-              "Personal Preferences",
-              "Submit",
-            ].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{this.handleIcons(index)}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-        </Drawer>
-      </Box>
-    );
-  }
-}
+  };
+  const navigate = useNavigate();
+  const handleClick = (text) => {
+    console.log(text);
+    switch (text) {
+      case "Personal Interests":
+        navigate("/personalInt");
+        break;
+      case "Academic Information":
+        navigate("/academicInfo");
+        break;
+      case "Submit":
+        navigate("/college-finder");
+        break;
+    }
+  };
 
-export default Sidebox;
+  return (
+    <Box sx={{ flexGrow: 1, p: 2 }}>
+      <Drawer
+        sx={{
+          width: 250,
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
+            width: 250,
+            boxSizing: "border-box",
+          },
+        }}
+        variant="permanent"
+        anchor="left"
+      >
+        <MenuIcon fontSize="large" />
+        <List>
+          {[
+            "Personal Interests",
+            "Academic Information",
+            "Budget",
+            "Location",
+            "Institution Type",
+            "Personal Preferences",
+            "Submit",
+          ].map((text, index) => (
+            <ListItem button onClick={() => handleClick(text)} key={text}>
+              <ListItemIcon>{handleIcons(index)}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+    </Box>
+  );
+}
