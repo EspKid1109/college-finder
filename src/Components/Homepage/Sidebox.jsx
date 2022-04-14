@@ -50,7 +50,7 @@ export default function SideBox() {
         navigate("/academicInfo");
         break;
       case "Submit":
-        navigate("/college-finder");
+        navigate("/submit");
         break;
     }
   };

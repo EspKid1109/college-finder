@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box } from "@mui/system";
 import { FormControl, Typography } from "@mui/material";
 import { Checkbox, FormGroup, Select, FormControlLabel } from "@mui/material";
@@ -8,7 +8,6 @@ import { MenuItem } from "@mui/material";
 import { InputLabel } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
-
 export default function PIBody() {
   // ***********************************  QUESTION 1  ***********************************
   const [state, setState] = React.useState({
@@ -25,17 +24,44 @@ export default function PIBody() {
   const { math, english, art, biology, chemistry, history, music, drama } =
     state;
 
+  const pushIntoStorage = (name) => {
+    if (name === parseInt(name, 10)) {
+      switch (name) {
+        case 10:
+          name = "Engineering";
+          break;
+        case 11:
+          name = "Education";
+          break;
+        case 12:
+          name = "Business";
+          break;
+        case 13:
+          name = "Arts";
+          break;
+        case 14:
+          name = "Architecture";
+          break;
+        case 15:
+          name = "Journalism";
+          break;
+      }
+    }
+    localStorage.setItem(name, !name.value);
+  };
   const handleChange = (event) => {
     setState({
       ...state,
       [event.target.name]: event.target.checked,
     });
+    pushIntoStorage(event.target.name);
   };
   // ***********************************  QUESTION 2  ***********************************
   const [career, setCareer] = React.useState("");
 
   const handleChange2 = (event) => {
     setCareer(event.target.value);
+    pushIntoStorage(event.target.value);
   };
 
   // ***********************************  QUESTION 3  ***********************************
@@ -69,6 +95,7 @@ export default function PIBody() {
       ...state2,
       [event.target.name]: event.target.checked,
     });
+    pushIntoStorage(event.target.name);
   };
 
   // ***********************************  QUESTION 4  ***********************************
@@ -105,6 +132,7 @@ export default function PIBody() {
       ...state3,
       [event.target.name]: event.target.checked,
     });
+    pushIntoStorage(event.target.name);
   };
 
   // ***********************************  BUTTON CTRL  ***********************************
@@ -112,7 +140,6 @@ export default function PIBody() {
   const btnHandler = () => {
     navigate("/academicInfo");
   };
-
   return (
     // ***********************************  QUESTION 1  ***********************************
     <Box
