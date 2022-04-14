@@ -1,27 +1,48 @@
-import React, { Component } from "react";
-import Headerbox from "./Homepage/Headerbox";
-import Grid from "@mui/material/Grid";
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import SideBox from "./Homepage/Sidebox";
 
-class SubmitBody extends Component {
-  state = {};
+const columns = [
+  { field: 'id', headerName: 'College', width: 230 },
+  { field: 'in', headerName: 'InStateCost', width: 120 },
+  { field: 'out', headerName: 'OutState Cost', width: 120 },
+  { field: 'ar', headerName: 'Acceptance Rate', width: 130 },
+  { field: 'top', headerName: 'Top 3 Majors', width: 260 },
+  { field: 'gpa', headerName: 'GPA', width: 60 },
+];
 
-  render() {
-    return (
-      <Box
-        sx={{ flexGrow: 1, p: 2 }}
-        height="75vh"
-        width="120vh"
-        position="relative"
-      >
-        <h1>SUBMIT PAGE</h1>
-      </Box>
-    );
-  }
+const rows = [
+  { id: 'University of South Florida', in: '$6,381', out: '$28,659', ar: '38.8%', top: 'Engineering,BMM,Bio', gpa: '4.42'},
+];
+
+export default function DataTable() {
+  return (
+    <Box
+      style={{background: 'white'}}
+      sx={{ flexGrow: 1, border: 1, p: 2 }}
+      height="75vh"
+      width="120vh"
+      position="relative"
+    >
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+      />
+    </Box>
+  );
+  btnHandler = () => {
+    console.log(JSON.stringify(localStorage)); //user info is stored here
+    localStorage.clear();
+  };
+
+  printData = () => {
+    const jsonData = require("./collegedata.json"); //jsonData is stored here, parse info HERE
+    console.log(jsonData);
+  };
 }
 
-export default SubmitBody;
