@@ -10,6 +10,15 @@ import SideBox from "./Homepage/Sidebox";
 class SubmitBody extends Component {
   state = {};
 
+  btnHandler = () => {
+    console.log(JSON.stringify(localStorage)); //user info is stored here
+    localStorage.clear();
+  };
+
+  printData = () => {
+    const jsonData = require("./collegedata.json"); //jsonData is stored here, parse info HERE
+    console.log(jsonData);
+  };
   render() {
     return (
       <Box
@@ -18,7 +27,7 @@ class SubmitBody extends Component {
         width="120vh"
         position="relative"
       >
-        <h1>SUBMIT PAGE</h1>
+        <Button onClick={this.printData}> GET LOCALSTORAGE </Button>
       </Box>
     );
   }
