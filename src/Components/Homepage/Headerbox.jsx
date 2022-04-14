@@ -17,7 +17,7 @@ class Headerbox extends Component {
           >
             <Box sx={{ p: 2 }}>
               <Typography variant="h2" align="justify">
-                College Finder: The Floobin Doobin.
+                College Finder: Exotic.
               </Typography>
             </Box>
           </Grid>
