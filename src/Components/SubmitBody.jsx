@@ -19,6 +19,15 @@ const rows = [
 ];
 
 export default function DataTable() {
+  const btnHandler = () => {
+    console.log(JSON.stringify(localStorage)); //user info is stored here
+    localStorage.clear();
+  };
+
+  const printData = () => {
+    const jsonData = require("./collegedata.json"); //jsonData is stored here, parse info HERE
+    console.log(jsonData);
+  };
   return (
     <Box
       style={{background: 'white'}}
@@ -35,14 +44,6 @@ export default function DataTable() {
       />
     </Box>
   );
-  btnHandler = () => {
-    console.log(JSON.stringify(localStorage)); //user info is stored here
-    localStorage.clear();
-  };
-
-  printData = () => {
-    const jsonData = require("./collegedata.json"); //jsonData is stored here, parse info HERE
-    console.log(jsonData);
-  };
+  
 }
 
