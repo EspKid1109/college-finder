@@ -9,6 +9,7 @@ import Navigation from "./Components/Navigation";
 import AcademicInfoPage from "./Components/AcademicInfoPage";
 import SubmitPage from "./Components/SubmitPage";
 import InstitutionTypePage from "./Components/InstitutionTypePage";
+import BudgetPage from "./Components/BudgetPage";
 ReactDOM.render(
   <Router>
     <Navigation />
@@ -16,6 +17,7 @@ ReactDOM.render(
       <Route path="/college-finder" element={<App />} />
       <Route path="/personalInt" element={<PIPage />} />
       <Route path="/academicInfo" element={<AcademicInfoPage />} />
+      <Route path="/budget" element={<BudgetPage />} />
       <Route path="/institutionType" element={<InstitutionTypePage />} />
       <Route path="/submit" element={<SubmitPage />} />
     </Routes>

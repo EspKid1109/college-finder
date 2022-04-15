@@ -10,6 +10,12 @@ function Navigation(){
             </NavLink>
             <NavLink className="nav-link" to="/academicInfo">
             </NavLink>
+            <NavLink className="nav-link" to="/budget">
+            </NavLink>
+            <NavLink className="nav-link" to="/submit">
+            </NavLink>
+            <NavLink className="nav-link" to="/institutionType">
+            </NavLink>
         </div>
     );
 }
