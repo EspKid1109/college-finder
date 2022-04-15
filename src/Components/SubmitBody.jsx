@@ -4,6 +4,16 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import PostData from "./collegedata.json";
+
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import TablePagination from "@mui/material/TablePagination";
 
 const columns = [
   { field: "id", headerName: "College", width: 230 },
@@ -12,6 +22,8 @@ const columns = [
   { field: "ar", headerName: "Acceptance Rate", width: 130 },
   { field: "top", headerName: "Top 3 Majors", width: 260 },
   { field: "gpa", headerName: "GPA", width: 60 },
+  { field: "sat", headerName: "SAT", width: 60 },
+  { field: "act", headerName: "ACT", width: 60 },
 ];
 
 const rows = [
@@ -22,10 +34,18 @@ const rows = [
     ar: "38.8%",
     top: "Engineering,BMM,Bio",
     gpa: "4.42",
+    sat: "1360",
+    act: "30",
   },
 ];
 
-export default function SubmitBody() {
+export default function DataTable() {
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
   const btnHandler = () => {
     console.log(JSON.stringify(localStorage)); //user info is stored here
     localStorage.clear();
@@ -43,12 +63,64 @@ export default function SubmitBody() {
       width="120vh"
       position="relative"
     >
-      <DataGrid
+      <TableContainer sx={{ maxHeight: 700 }}>
+        <Table stickyHeader aria-label="sticky table">
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          <TableHead>
+            <TableRow>
+              <TableCell>College</TableCell>
+              <TableCell>Instate Cost</TableCell>
+              <TableCell>Outstate Cost</TableCell>
+              <TableCell>GPA</TableCell>
+              <TableCell>SAT</TableCell>
+              <TableCell>ACT</TableCell>
+              <TableCell>Acceptance Rate</TableCell>
+              <TableCell>Public/Private</TableCell>
+              <TableCell>Online Availability</TableCell>
+              <TableCell>Location</TableCell>
+              <TableCell>Top 3 Majors</TableCell>
+              <TableCell>Academic Score</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {PostData.map((list, index) => (
+              <TableRow key={index}>
+                <TableCell>{list.College}</TableCell>
+                <TableCell>{list.In}</TableCell>
+                <TableCell>{list.Out}</TableCell>
+                <TableCell>{list.GPA}</TableCell>
+                <TableCell>{list.SAT}</TableCell>
+                <TableCell>{list.ACT}</TableCell>
+                <TableCell>{list.AR}</TableCell>
+                <TableCell>{list.Type}</TableCell>
+                <TableCell>{list.OP}</TableCell>
+                <TableCell>{list.L}</TableCell>
+                <TableCell>{list.Majors}</TableCell>
+                <TableCell>{list.AS}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
+  );
+}
+{
+  /* <DataGrid
         rows={rows}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5]}
-      />
-    </Box>
-  );
+      /> */
+}
+
+{
+  /* <TablePagination
+            component="div"
+            count={rows.length}
+            page={page}
+            rowsPerPage={[5]}
+            onPageChange={handleChangePage}
+            /> */
 }
