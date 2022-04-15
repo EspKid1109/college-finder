@@ -27,13 +27,9 @@ export default function SideBox() {
       case 2:
         return <AttachMoneyIcon />;
       case 3:
-        return <LocationOnIcon />;
-      case 4:
         return <SchoolIcon />;
-      case 5:
+      case 4:
         return <ContentPasteIcon />;
-      case 6:
-        return <CheckIcon />;
       default:
         return <FavoriteIcon />;
     }
@@ -48,6 +44,9 @@ export default function SideBox() {
         break;
       case "Academic Information":
         navigate("/academicInfo");
+        break;
+      case "Institution Type":
+        navigate("/institutionType");
         break;
       case "Submit":
         navigate("/submit");
@@ -75,9 +74,7 @@ export default function SideBox() {
             "Personal Interests",
             "Academic Information",
             "Budget",
-            "Location",
             "Institution Type",
-            "Personal Preferences",
             "Submit",
           ].map((text, index) => (
             <ListItem button onClick={() => handleClick(text)} key={text}>
