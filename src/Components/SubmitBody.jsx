@@ -57,13 +57,13 @@ export default function DataTable() {
   };
   return (
     <Box
-      style={{ background: "white" }}
-      sx={{ flexGrow: 1, border: 1, p: 2 }}
-      height="75vh"
+      height="50vh"
       width="120vh"
       position="relative"
     >
-      <TableContainer sx={{ maxHeight: 700 }}>
+      <TableContainer 
+        style={{ background: "white" }}
+        sx={{ maxHeight: 500, border: 1  }}>
         <Table stickyHeader aria-label="sticky table">
           pageSize={5}
           rowsPerPageOptions={[5]}

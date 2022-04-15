@@ -90,8 +90,8 @@ export default function InstitutionTypeBody() {
 
   return (
     <Box
-      sx={{ flexGrow: 1, p: 2, border: 1 }}
-      height="75vh"
+      sx={{ flexGrow: 1, p: 10, border: 1 }}
+      height="50vh"
       width="120vh"
       position="relative"
     >

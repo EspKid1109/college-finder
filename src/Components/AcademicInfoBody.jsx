@@ -7,7 +7,7 @@ export default function AcademicInfoBody() {
   return (
     <Box
       sx={{ flexGrow: 1, p: 2 }}
-      height="75vh"
+      height="100vh"
       width="120vh"
       position="relative"
     >

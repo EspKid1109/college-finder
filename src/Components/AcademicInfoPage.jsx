@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Sidebox from "./Homepage/Sidebox";
+import SideTest from "./Homepage/SideTest";
 import Headerbox from "./Homepage/Headerbox";
 import AcademicInfoBody from "./AcademicInfoBody";
 
@@ -9,7 +9,7 @@ class AcademicInfoPage extends Component {
     return (
       <div className="App">
         <header className="App-header">
-            <Sidebox />
+            <SideTest />
             <Headerbox />
             <AcademicInfoBody />
         </header>

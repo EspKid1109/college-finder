@@ -12,7 +12,7 @@ export default function HomepageBody() {
   };
   return (
     <Box
-      sx={{ flexGrow: 1, border: 1, p: 2 }}
+      sx={{ flexGrow: 1, border: 1, p: 1 }}
       height="75vh"
       width="120vh"
       position="relative"
