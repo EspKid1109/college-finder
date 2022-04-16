@@ -45,6 +45,9 @@ export default function SideBox() {
       case "Academic Information":
         navigate("/academicInfo");
         break;
+        case "Budget":
+          navigate("/budget");
+          break;
       case "Institution Type":
         navigate("/institutionType");
         break;

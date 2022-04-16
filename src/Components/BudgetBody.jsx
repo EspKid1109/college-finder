@@ -8,14 +8,14 @@ export default function BudgetBody() {
     <Box
       sx={{ flexGrow: 1, p: 2 }}
       height="75vh"
-      width="120vh"
+      width="140vh"
       position="relative"
     >
       <FormControl
         sx={{
           m: 32,
-          left: "-50%",
-          top: -200,
+          left: "-35.5%",
+          top: -255,
         }}
       >
         <Grid item xs={6}>
