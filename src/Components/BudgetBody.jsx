@@ -11,31 +11,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const CustomTextField = styled((props) => (
-  <TextField InputProps={{disabledUnderline: true}} {...props} />
-))(({theme}) => ({
-  '& .MuiFilledInput-root':{
-    border: '1px solid #e2e2e1',
-    overflow: 'hidden',
-    borderRadius: 4,
-    backgroundColor: theme.palette.mode === 'light' ? '#fcfcfb' : '#2b2b2b',
-    transition: theme.transitions.create([
-      'border-color',
-      'background-color',
-      'box-shadow',
-    ]),
-    '&:hover': {
-      backgroundColor: theme.palette.mode === 'light' ? '#fcfcfb' : '#2b2b2b',
-    },
-    '&.Mui-focused': {
-      backgroundColor: theme.palette.mode === 'light' ? '#fcfcfb' : '#2b2b2b',
-      boxShadow: '${alpha(theme.palette.primary.main, 0.25)} 0 0 0 2px',
-      borderColor: theme.palette.primary.main, 
-    },
-    },
-}));
-
-
+// ***********************************  BUDGET CONSTANTS  ***********************************
 function valuetext(value){
   return '${value} or less'
 }
@@ -43,31 +19,32 @@ const budget_min = 0;
 const budget_max = 90000;
 
 export default function BudgetBody() {
-// ***********************************  BUDGET QUESTION  ***********************************
+// ********************************  BUDGET VALUES/CONSTANTS  **********************************
   const [value, setValue] = React.useState(10000);
+
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
   };
-  
+
   const handleInputChange = (event) => {
-    
     var value =  parseInt(event.target.value, 10);
             if(value > budget_max) value = budget_max;
             if(value < budget_min) value = budget_min;
             setValue(value);
   };
-   // ***********************************  RESIDENT QUESTION  ***********************************
+   // ****************************  FL RESIDENT VALUES/CONSTANTS ********************************
    const [value2, setValue2] = React.useState("yes");
    const handleChange = (event) => {
      setValue2(event.target.value);
  
    };
 
-  // ***********************************  BUTTON CTRL  ***********************************
+  // ***********************************  BUTTON CTRL  *****************************************
   const navigate = useNavigate();
   const btnHandler = () => {
     navigate("/institutionType");
   };
+
   return (
     <Box
       sx={{ flexGrow: 1, p: 2 }}
@@ -158,8 +135,8 @@ export default function BudgetBody() {
       <FormControl
         sx={{
           m: 32,
-          left: "75%",
-          top: -1973,
+          left: "-21.5%",
+          top: -1720,
         }}
       >
         <Grid item xs={6}>
@@ -175,8 +152,8 @@ export default function BudgetBody() {
       <FormControl
         sx={{
           m: 32,
-          left: "75.5%",
-          top: -2500,
+          left: "-21.5%",
+          top: -2260,
         }}
       >
         <FormGroup>
@@ -194,8 +171,8 @@ export default function BudgetBody() {
       <FormControl
         sx={{
           m: 32,
-          left: "66.5%",
-          top: -2650,
+          left: "52.5%",
+          top: -2553,
         }}>
       <Grid item xs={12} sx={{ ml: 23, mt: -10}}>
         <Button
