@@ -103,7 +103,7 @@ export default function AcademicInfoBody() {
       <FormControl
         sx={{
           m: 32,
-          left: "-26.5%",
+          left: "-27%",
           top: -655,
         }}>
         <Grid item xs={6}>
