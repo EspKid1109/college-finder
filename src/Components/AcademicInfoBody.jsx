@@ -7,7 +7,7 @@ import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-
+// ***********************************  CUSTOM TEXT BOX  ***********************************
 const CustomTextField = styled((props) => (
   <TextField InputProps={{disabledUnderline: true}} {...props} />
 ))(({theme}) => ({
@@ -31,6 +31,7 @@ const CustomTextField = styled((props) => (
     },
     },
 }));
+// ***********************************  CONSTANTS  ***********************************
 const GPA_min = 0.00;
 const GPA_max = 6.00;
 
@@ -39,15 +40,21 @@ const SAT_max = 1600;
 
 const ACT_min = 0;
 const ACT_max = 36;
+
 export default function AcademicInfoBody() {
+  // ***********************************  VALUES  ***********************************
   const [GPA_value, setValue] = React.useState({});
   const [SAT_value, setValue2] = React.useState({});
   const [ACT_value, setValue3] = React.useState({});
-  // ***********************************  BUTTON CTRL  ***********************************
+
+  // ******************************  NEXT BUTTON CTRL  ***********************************
   const navigate = useNavigate();
   const btnHandler = () => {
     navigate("/budget");
   };
+
+
+
   return (
     <Box
       sx={{ flexGrow: 1, p: 2 }}
@@ -138,7 +145,7 @@ export default function AcademicInfoBody() {
       <FormControl
         sx={{
           m: 32,
-          left: "39%",
+          left: "45.7%",
           top: -1513,
         }}>
         <Grid item xs={6}>
@@ -168,27 +175,29 @@ export default function AcademicInfoBody() {
           style={{marginTop:11}}
         />
       </FormControl>
+
+
       <FormControl
         sx={{
           m: 32,
-          left: "39%",
-          top: -1513,
+          left: "46%",
+          top: -1518,
         }}>
       <Grid item xs={12} sx={{ ml: 23, mt: -10}}>
-                <Button
-                  onClick={btnHandler}
-                  style={{
-                    minWidth: "150px",
-                    minHeight: "70px",
-                    borderRadius: 18,
-                    backgroundColor: "#7f91b8",
-                  }}
-                  variant="contained"
-                >
-                  NEXT
-                </Button>
-              </Grid>
-              </FormControl>
+        <Button
+          onClick={btnHandler}
+          style={{
+            minWidth: "150px",
+            minHeight: "70px",
+            borderRadius: 18,
+            backgroundColor: "#7f91b8",
+          }}
+          variant="contained"
+        >
+          NEXT
+        </Button>
+      </Grid>
+      </FormControl>
       </FormControl>
     </Box>
   );

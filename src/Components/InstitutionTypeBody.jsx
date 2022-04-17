@@ -90,14 +90,14 @@ export default function InstitutionTypeBody() {
 
   return (
     <Box
-      sx={{ flexGrow: 1, p: 2, border: 1 }}
+      sx={{ flexGrow: 1, p: 2 }}
       height="75vh"
       width="120vh"
       position="relative"
     >
       <FormControl
         sx={{
-          left: "-30%",
+          left: "-26%",
         }}
         component="fieldset"
         variant="standard"
@@ -166,6 +166,7 @@ export default function InstitutionTypeBody() {
               m: 2,
               left: "-210%",
               top: 140,
+              width:500
             }}
             component="fieldset"
             variant="standard"
@@ -175,6 +176,7 @@ export default function InstitutionTypeBody() {
                 sx={{ mb: 2, fontWeight: "bold" }}
                 variant="h6"
                 align="left"
+                
               >
                 Do you have a preference for public or private programs?
               </Typography>
@@ -202,7 +204,7 @@ export default function InstitutionTypeBody() {
                   label="Doesn't Matter"
                 />
               </RadioGroup>
-              <Grid item xs={12} sx={{ ml: 100, mt: 15, mb:6 }}>
+              <Grid item xs={12} sx={{ ml: 100, mt: 7, mb:10 }}>
                 <Button
                   onClick={btnHandler}
                   style={{
