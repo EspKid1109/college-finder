@@ -640,7 +640,7 @@ export default function PIBody() {
                   label="Astronomy Club"
                 />
               </FormGroup>
-              <Grid item xs={12} sx={{ ml: 10, mt: 10 }}>
+              <Grid item xs={12} sx={{ ml: -13, mt: 10, mb:6 }}>
                 <Button
                   onClick={btnHandler}
                   style={{

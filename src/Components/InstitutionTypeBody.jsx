@@ -83,7 +83,7 @@ export default function InstitutionTypeBody() {
 
   const navigate = useNavigate();
   const btnHandler = () => {
-    //navigate("/submit");
+    navigate("/submit");
     console.log(JSON.stringify(localStorage)); //user info is stored here
     localStorage.clear();
   };
@@ -202,7 +202,7 @@ export default function InstitutionTypeBody() {
                   label="Doesn't Matter"
                 />
               </RadioGroup>
-              <Grid item xs={12} sx={{ ml: 100, mt: 20 }}>
+              <Grid item xs={12} sx={{ ml: 100, mt: 15, mb:6 }}>
                 <Button
                   onClick={btnHandler}
                   style={{
