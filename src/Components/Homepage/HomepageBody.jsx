@@ -35,12 +35,12 @@ export default function HomepageBody() {
             About Us
           </Typography>
           <Typography variant="body1" align="justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et
-            eleifend lorem, nec auctor neque. Duis sollicitudin ac erat id
-            vehicula. Integer molestie purus non libero scelerisque lobortis.
-            Praesent nisl arcu, ullamcorper vehicula accumsan vitae, bibendum et
-            urna. Donec rhoncus lorem sit amet mi iaculis, vel bibendum est
-            ultrices.
+            College Finder! A website that pays closer attention to student
+            interests and capacities to match them with different schools. By
+            focusing on matching interests with the student’s location, academic
+            performance, preferred schools, and budget limitations, College
+            Finder will attempt to help students find great matches based on
+            their needs.
           </Typography>
         </Grid>
         <Grid item xs={12}>
