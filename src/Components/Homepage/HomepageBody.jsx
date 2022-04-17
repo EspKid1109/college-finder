@@ -37,7 +37,7 @@ export default function HomepageBody() {
           <Typography variant="body1" align="justify">
             College Finder! A website that pays closer attention to student
             interests and capacities to match them with different schools. By
-            focusing on matching interests with the student’s location, academic
+            focusing on matching interests with the student's location, academic
             performance, preferred schools, and budget limitations, College
             Finder will attempt to help students find great matches based on
             their needs.
