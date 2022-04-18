@@ -148,7 +148,7 @@ export default function InstitutionTypeBody() {
                     majorStr += majorsArr[k];
                     switch (majorStr) {
                         case "Engineering":
-                            if (userDataList[j] === "Engineering") {
+                            if (userDataList[j] === "Engineering" || userDataList[j] === "math" || userDataList[j] === "chemistry") {
                                 singleRank++;
                             }
                             break;
@@ -158,22 +158,22 @@ export default function InstitutionTypeBody() {
                             }
                             break;
                         case "Bio":
-                            if (userDataList[j] === "n/a") {
+                            if (userDataList[j] === "biology") {
                                 singleRank++;
                             }
                             break;
                         case "Health":
-                            if (userDataList[j] === "n/a") {
+                            if (userDataList[j] === "biology" || userDataList[j] === "chemistry") {
                                 singleRank++;
                             }
                             break;
                         case "Psychology":
-                            if (userDataList[j] === "n/a") {
+                            if (userDataList[j] === "biology") {
                                 singleRank++;
                             }
                             break;
                         case "Finance":
-                            if (userDataList[j] === "Business") {
+                            if (userDataList[j] === "Business" || userDataList[j] === "math") {
                                 singleRank++;
                             }
                             break;
@@ -183,7 +183,7 @@ export default function InstitutionTypeBody() {
                             }
                             break;
                         case "Computer Science":
-                            if (userDataList[j] === "Engineering") {
+                            if (userDataList[j] === "Engineering" || userDataList[j] === "math") {
                                 singleRank++;
                             }
                             break;
