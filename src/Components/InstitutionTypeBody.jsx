@@ -73,7 +73,7 @@ export default function InstitutionTypeBody() {
     setCity(event.target.value);
     pushIntoStorage(event.target.value);
   };
-
+   
   const [state2, setState2] = React.useState("public");
 
   const handleChange3 = (event) => {
@@ -85,9 +85,117 @@ export default function InstitutionTypeBody() {
   const btnHandler = () => {
     navigate("/submit");
     console.log(JSON.stringify(localStorage)); //user info is stored here
+    rank();
     localStorage.clear();
-  };
+    };
 
+    class user{
+        constructor(major,city) {
+            this.major = major;
+            this.city = city;
+        }
+    }
+
+    function rank() {
+        let rankList = [];
+        let userDataList = [];
+        const collegeData = require("./collegedata.json");
+        let userData = JSON.stringify(localStorage);
+        console.log(userData);
+        var userArr = userData.split(',');
+
+        //formatting user info from storage
+        for (let i = 0; i < userArr.length; i++) {
+            let temp = "";
+            let isColon = 0;
+            for (let j = 0; j < userArr[i].length; j++) {
+                console.log(userArr[i].at(j));
+                if (userArr[i].at(j) === ':' && !isColon) {
+                    if (!isColon) {
+                        isColon = 1;
+                    } else {
+                        isColon = 0;
+                    }
+                }
+                if (!(userArr[i].at(j) === '"') && !isColon && !(userArr[i].at(j) === '{') && !(userArr[i].at(j) === '}') && !(userArr[i].at(j) === '\'')){
+                    temp+=userArr[i].at(j);
+                    console.log(temp);
+                }
+            }
+            userDataList[i] = temp;
+            temp = "";
+        }
+        console.log(userDataList);
+
+        //looping through all current colleges in collegedata.json
+        for (let i = 0; i < 14; i++) {
+            let singleRank = 0;
+            let location = "";
+            location += collegeData[i].L;
+            //formatting location
+            location=location.substring(0, location.length - 4);
+            //formatting majors
+            var majorsArr = collegeData[i].Majors.split(',');
+            for (let j = 0; j < userDataList.length; j++) {
+                console.log(userDataList[j]);
+                //check if location matches
+                if (userDataList[j] === location) {
+                    singleRank++;
+                }
+                //checking for major/subject matches
+                for (let k = 0; k < 3; k++) {
+                    let majorStr = "";
+                    majorStr += majorsArr[k];
+                    switch (majorStr) {
+                        case "Engineering":
+                            if (userDataList[j] === "Engineering" || userDataList[j] === "math" || userDataList[j] === "chemistry") {
+                                singleRank++;
+                            }
+                            break;
+                        case "BMM":
+                            if (userDataList[j] === "Business") {
+                                singleRank++;
+                            }
+                            break;
+                        case "Bio":
+                            if (userDataList[j] === "biology") {
+                                singleRank++;
+                            }
+                            break;
+                        case "Health":
+                            if (userDataList[j] === "biology" || userDataList[j] === "chemistry") {
+                                singleRank++;
+                            }
+                            break;
+                        case "Psychology":
+                            if (userDataList[j] === "biology") {
+                                singleRank++;
+                            }
+                            break;
+                        case "Finance":
+                            if (userDataList[j] === "Business" || userDataList[j] === "math") {
+                                singleRank++;
+                            }
+                            break;
+                        case "Communications":
+                            if (userDataList[j] === "Journalism") {
+                                singleRank++;
+                            }
+                            break;
+                        case "Computer Science":
+                            if (userDataList[j] === "Engineering" || userDataList[j] === "math") {
+                                singleRank++;
+                            }
+                            break;
+                    }
+                }
+            }
+            rankList[i] = singleRank;
+            //console.log(collegeData[i].College);
+        }
+        console.log(rankList);
+    }
+    
   return (
     <Box
       sx={{ flexGrow: 1, p: 2 }}
