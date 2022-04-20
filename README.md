@@ -2,9 +2,17 @@
 
 [College Finder](https://collegefinder.github.io/college-finder/)
 
-# Getting Started with Create React App
+# College Finder 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Using material UI, install here: https://mui.com/getting-started/installation/
+
+Also using react-router-dom, install here: https://reactrouter.com/docs/en/v6/getting-started/installation
+
+Web page is hosted on GitHub pages, install here: https://docs.github.com/en/pages/quickstart
+
+# How to run:
+
+Install latest version of requisite libraries (material UI, react-router-dom 6, GitHub Pages). Unzip the source code. run 'npm start' in the project directory to open up the app in development mode. To deploy to GitHub Pages, run 'npm run deploy'. 
 
 ## Available Scripts
 
@@ -48,27 +56,3 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
