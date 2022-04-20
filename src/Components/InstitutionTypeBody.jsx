@@ -109,7 +109,6 @@ export default function InstitutionTypeBody() {
             let temp = "";
             let isColon = 0;
             for (let j = 0; j < userArr[i].length; j++) {
-                console.log(userArr[i].at(j));
                 if (userArr[i].at(j) === ':' && !isColon) {
                     if (!isColon) {
                         isColon = 1;
@@ -117,9 +116,9 @@ export default function InstitutionTypeBody() {
                         isColon = 0;
                     }
                 }
+                //getting rid of uneeded characters
                 if (!(userArr[i].at(j) === '"') && !isColon && !(userArr[i].at(j) === '{') && !(userArr[i].at(j) === '}') && !(userArr[i].at(j) === '\'')){
                     temp+=userArr[i].at(j);
-                    console.log(temp);
                 }
             }
             userDataList[i] = temp;
@@ -137,12 +136,11 @@ export default function InstitutionTypeBody() {
             //formatting majors
             var majorsArr = collegeData[i].Majors.split(',');
             for (let j = 0; j < userDataList.length; j++) {
-                console.log(userDataList[j]);
                 //check if location matches
                 if (userDataList[j] === location) {
                     singleRank++;
                 }
-                //checking for major/subject matches
+                //checking for major/subject matches from top 3 majors
                 for (let k = 0; k < 3; k++) {
                     let majorStr = "";
                     majorStr += majorsArr[k];
@@ -191,10 +189,27 @@ export default function InstitutionTypeBody() {
                 }
             }
             rankList[i] = singleRank;
-            //console.log(collegeData[i].College);
         }
         console.log(rankList);
+        let sortedColleges = [];
+        let max = -1;
+        let index = -1;
+        for (let i = 0; i < rankList.length; i++) {
+            for (let j = 0; j < rankList.length; j++) {
+                if (rankList[j] >= max) {
+                    max = rankList[j];
+                    index = j;
+                }
+            }
+            sortedColleges[i] = index;
+            rankList[index] = -2;
+            max = -1;
+        }
+        console.log(sortedColleges);
+        return sortedColleges;
     }
+
+    
     
   return (
     <Box
