@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import PostData from "./collegedata.json";
-
+import { finalDataList } from "./InstitutionTypeBody.jsx";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -81,10 +81,10 @@ export default function DataTable() {
               <TableCell>Location</TableCell>
               <TableCell>Top 3 Majors</TableCell>
               <TableCell>Academic Score</TableCell>
-            </TableRow>
+              </TableRow>
           </TableHead>
           <TableBody>
-            {PostData.map((list, index) => (
+            {finalDataList.map((list, index) => (
               <TableRow key={index}>
                 <TableCell>{list.College}</TableCell>
                 <TableCell>{list.In}</TableCell>

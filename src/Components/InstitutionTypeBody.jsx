@@ -2,6 +2,7 @@ import React from "react";
 import { Box } from "@mui/system";
 import { FormControl, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import PostData from "./collegedata.json";
 import { Checkbox, FormGroup, Select, FormControlLabel } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { Button } from "@mui/material";
@@ -11,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import Switch from "@mui/material/Switch";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
+let finalDataList = [];
 export default function InstitutionTypeBody() {
   //NOTE: INPUTTING DATA FOR radio buttons is broken
   const pushIntoStorage = (name) => {
@@ -89,20 +91,14 @@ export default function InstitutionTypeBody() {
     localStorage.clear();
     };
 
-    class user{
-        constructor(major,city) {
-            this.major = major;
-            this.city = city;
-        }
-    }
 
     function rank() {
         let rankList = [];
         let userDataList = [];
-        const collegeData = require("./collegedata.json");
+        var collegeData = require("./collegedata.json");
         let userData = JSON.stringify(localStorage);
         console.log(userData);
-        var userArr = userData.split(',');
+        let userArr = userData.split(',');
 
         //formatting user info from storage
         for (let i = 0; i < userArr.length; i++) {
@@ -190,7 +186,7 @@ export default function InstitutionTypeBody() {
             }
             rankList[i] = singleRank;
         }
-        console.log(rankList);
+        //sorting the indices from greatest to least rank
         let sortedColleges = [];
         let max = -1;
         let index = -1;
@@ -206,8 +202,20 @@ export default function InstitutionTypeBody() {
             max = -1;
         }
         console.log(sortedColleges);
+        finalDataOrder(sortedColleges);
         return sortedColleges;
-    }
+    };
+
+    //creates college data array in correct order to pass to table
+    function finalDataOrder(indexArr) {
+        let collegeData = require("./collegedata.json");
+        for (let i = 0; i < indexArr.length; i++) {
+            let temp = collegeData[i];
+            collegeData[i] = collegeData[indexArr[i]];
+            collegeData[indexArr[i]] = temp;
+        }
+        finalDataList = collegeData;
+    };
 
     
     
@@ -348,3 +356,5 @@ export default function InstitutionTypeBody() {
     </Box>
   );
 }
+export { finalDataList };
+
