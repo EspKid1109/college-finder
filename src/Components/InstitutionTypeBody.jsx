@@ -2,6 +2,7 @@ import React from "react";
 import { Box } from "@mui/system";
 import { FormControl, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
+import PostData from "./collegedata.json";
 import { Checkbox, FormGroup, Select, FormControlLabel } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { Button } from "@mui/material";
@@ -11,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import Switch from "@mui/material/Switch";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
+let finalDataList = [];
 export default function InstitutionTypeBody() {
   //NOTE: INPUTTING DATA FOR radio buttons is broken
   const pushIntoStorage = (name) => {
@@ -89,27 +91,20 @@ export default function InstitutionTypeBody() {
     localStorage.clear();
     };
 
-    class user{
-        constructor(major,city) {
-            this.major = major;
-            this.city = city;
-        }
-    }
 
     function rank() {
         let rankList = [];
         let userDataList = [];
-        const collegeData = require("./collegedata.json");
+        var collegeData = require("./collegedata.json");
         let userData = JSON.stringify(localStorage);
         console.log(userData);
-        var userArr = userData.split(',');
+        let userArr = userData.split(',');
 
         //formatting user info from storage
         for (let i = 0; i < userArr.length; i++) {
             let temp = "";
             let isColon = 0;
             for (let j = 0; j < userArr[i].length; j++) {
-                console.log(userArr[i].at(j));
                 if (userArr[i].at(j) === ':' && !isColon) {
                     if (!isColon) {
                         isColon = 1;
@@ -117,9 +112,9 @@ export default function InstitutionTypeBody() {
                         isColon = 0;
                     }
                 }
+                //getting rid of uneeded characters
                 if (!(userArr[i].at(j) === '"') && !isColon && !(userArr[i].at(j) === '{') && !(userArr[i].at(j) === '}') && !(userArr[i].at(j) === '\'')){
                     temp+=userArr[i].at(j);
-                    console.log(temp);
                 }
             }
             userDataList[i] = temp;
@@ -137,12 +132,11 @@ export default function InstitutionTypeBody() {
             //formatting majors
             var majorsArr = collegeData[i].Majors.split(',');
             for (let j = 0; j < userDataList.length; j++) {
-                console.log(userDataList[j]);
                 //check if location matches
                 if (userDataList[j] === location) {
                     singleRank++;
                 }
-                //checking for major/subject matches
+                //checking for major/subject matches from top 3 majors
                 for (let k = 0; k < 3; k++) {
                     let majorStr = "";
                     majorStr += majorsArr[k];
@@ -191,10 +185,39 @@ export default function InstitutionTypeBody() {
                 }
             }
             rankList[i] = singleRank;
-            //console.log(collegeData[i].College);
         }
-        console.log(rankList);
-    }
+        //sorting the indices from greatest to least rank
+        let sortedColleges = [];
+        let max = -1;
+        let index = -1;
+        for (let i = 0; i < rankList.length; i++) {
+            for (let j = 0; j < rankList.length; j++) {
+                if (rankList[j] >= max) {
+                    max = rankList[j];
+                    index = j;
+                }
+            }
+            sortedColleges[i] = index;
+            rankList[index] = -2;
+            max = -1;
+        }
+        console.log(sortedColleges);
+        finalDataOrder(sortedColleges);
+        return sortedColleges;
+    };
+
+    //creates college data array in correct order to pass to table
+    function finalDataOrder(indexArr) {
+        let collegeData = require("./collegedata.json");
+        for (let i = 0; i < indexArr.length; i++) {
+            let temp = collegeData[i];
+            collegeData[i] = collegeData[indexArr[i]];
+            collegeData[indexArr[i]] = temp;
+        }
+        finalDataList = collegeData;
+    };
+
+    
     
   return (
     <Box
@@ -333,3 +356,5 @@ export default function InstitutionTypeBody() {
     </Box>
   );
 }
+export { finalDataList };
+
