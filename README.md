@@ -8,6 +8,8 @@ Using material UI, install here: https://mui.com/getting-started/installation/
 
 Also using react-router-dom, install here: https://reactrouter.com/docs/en/v6/getting-started/installation
 
+Web page is hosted on GitHub pages, install here: https://docs.github.com/en/pages/quickstart
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
